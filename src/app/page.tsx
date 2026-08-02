@@ -1,65 +1,125 @@
-import Image from "next/image";
+import { Hero } from "@/components/Hero";
+import { SectionHeading } from "@/components/SectionHeading";
+import { ServiceCard } from "@/components/ServiceCard";
+import { GalleryPreviewGrid } from "@/components/GalleryPreviewGrid";
+import { Testimonials } from "@/components/Testimonials";
+import { CTASection } from "@/components/CTASection";
+import { Button } from "@/components/Button";
+import { services } from "@/lib/services-data";
+import { galleryItems } from "@/lib/gallery-data";
+import { siteConfig } from "@/lib/site-config";
+import { InstagramIcon } from "@/components/icons";
 
-export default function Home() {
+export default function HomePage() {
+  const featuredServices = services.slice(0, 3);
+  const previewGallery = galleryItems.slice(0, 6);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
+    <>
+      <Hero
+        eyebrow="Beautiful Craft"
+        title={siteConfig.tagline}
+        description={siteConfig.description}
+        image="/images/hero-wedding-cake.jpg"
+        imageAlt="Elegant four-tier white wedding cake decorated with fresh roses"
+        primaryCta={{ href: "/contact", label: "Enquire Now" }}
+        secondaryCta={{ href: "/gallery", label: "View Gallery" }}
+      />
+
+      {/* Quick highlights */}
+      <section className="section-container -mt-16 relative z-10 grid gap-4 rounded-3xl bg-white p-8 shadow-xl ring-1 ring-cocoa/5 md:grid-cols-3 md:p-10">
+        {[
+          {
+            title: "Bespoke Design",
+            copy: "Every cake is designed around your event, theme and flowers — never off the shelf.",
+          },
+          {
+            title: "Quality Ingredients",
+            copy: "Made fresh with quality ingredients, with allergen-aware and dietary options available.",
+          },
+          {
+            title: "Personal Service",
+            copy: "We're with you from enquiry to delivery, so nothing is left to chance on the day.",
+          },
+        ].map((item) => (
+          <div key={item.title} className="border-t-2 border-gold pt-4 first:border-t-2 md:border-t-0 md:border-l-2 md:pl-6 md:pt-0 md:first:border-l-0 md:first:pl-0">
+            <h3 className="font-serif-display text-lg text-cocoa">{item.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-cocoa-light">{item.copy}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* Services teaser */}
+      <section className="section-container py-24">
+        <SectionHeading
+          eyebrow="What We Bake"
+          title="Cakes for every occasion"
+          description="From wedding showstoppers to birthday favourites, each cake is planned and decorated to suit your celebration."
         />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+        <div className="mt-12 grid gap-8 md:grid-cols-3">
+          {featuredServices.map((service) => (
+            <ServiceCard key={service.id} service={service} />
+          ))}
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+        <div className="mt-10 flex justify-center">
+          <Button href="/services" variant="outline">
+            View All Services
+          </Button>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* Gallery preview */}
+      <section className="bg-blush/40 py-24">
+        <div className="section-container">
+          <SectionHeading
+            eyebrow="Our Work"
+            title="A taste of what we've baked"
+            description="A small selection from recent weddings, birthdays and celebrations."
+          />
+          <div className="mt-12">
+            <GalleryPreviewGrid items={previewGallery} />
+          </div>
+          <div className="mt-10 flex justify-center">
+            <Button href="/gallery" variant="outline">
+              View Full Gallery
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials */}
+      <section className="section-container py-24">
+        <SectionHeading
+          eyebrow="Kind Words"
+          title="Loved by our clients"
+          description="A few notes from the couples and families we've had the pleasure of baking for."
+        />
+        <div className="mt-12">
+          <Testimonials />
+        </div>
+      </section>
+
+      <CTASection
+        title="Ready to create something sweet?"
+        description="Tell us about your event and we'll get back to you within 24 hours with ideas and availability."
+      />
+
+      {/* Instagram strip */}
+      <section className="section-container flex flex-col items-center gap-4 py-16 text-center">
+        <InstagramIcon className="h-8 w-8 text-rose" />
+        <p className="font-serif-display text-2xl text-cocoa">@cakesbybims</p>
+        <p className="max-w-md text-sm text-cocoa-light">
+          Follow us on Instagram for the latest creations, behind-the-scenes decorating and booking availability.
+        </p>
+        <a
+          href={siteConfig.social.instagram}
+          target="_blank"
+          rel="noreferrer noopener"
+          className="text-sm font-semibold uppercase tracking-wide text-rose hover:text-rose-dark"
+        >
+          Follow Along →
+        </a>
+      </section>
+    </>
   );
 }

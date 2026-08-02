@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# CakesbyBIMS — Website Redesign
 
-## Getting Started
+A redesigned, redeveloped marketing site for CakesbyBIMS, a bespoke UK cake business, built with
+Next.js (App Router), TypeScript and Tailwind CSS v4.
 
-First, run the development server:
+## Pages
+
+Each top navigation link routes to its own dedicated page (no scroll-anchors mixed into the nav):
+
+- `/` — Home
+- `/about` — Our Story
+- `/gallery` — Filterable cake gallery with lightbox
+- `/services` — Services, indicative pricing and FAQ
+- `/contact` — Enquiry form + contact details
+
+## Getting started
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # start the dev server at http://localhost:3000
+npm run build    # production build
+npm run start    # run the production build
+npm run lint     # eslint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Content that still needs the real business details
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+This redesign keeps the one piece of copy that was genuine on the old WordPress site (the "Baked
+with Love" description) and the real Facebook/Instagram links. Everything else that the old site
+only had as WordPress theme placeholder (Lorem Ipsum About/Contact pages) has been rewritten with
+realistic copy, but the following should be swapped for the real details before launch:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `src/lib/site-config.ts` — phone number, email address, WhatsApp number, service area and
+  opening hours are placeholders.
+- `src/lib/services-data.ts` — starting prices are indicative guides, not confirmed pricing.
+- `src/lib/gallery-data.ts` — gallery photography is royalty-free stock (Unsplash) standing in for
+  real photos of CakesbyBIMS' own cakes; swap `public/images/*.jpg` for real photography and update
+  the matching `alt` text.
+- `src/components/Testimonials.tsx` — testimonials are illustrative placeholders.
 
-## Learn More
+## Contact form
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The enquiry form on `/contact` is client-side only: submitting it opens the visitor's email app
+with a pre-filled message addressed to `siteConfig.email` (a `mailto:` link), so no backend or
+third-party form service is required. If a backend inbox is preferred later, replace the
+`handleSubmit` logic in `src/components/ContactForm.tsx` with a call to an API route or form
+service.
