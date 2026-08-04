@@ -31,7 +31,7 @@ export default function ContactPage() {
         <StaggerGroup className="flex flex-col gap-8">
           <StaggerItem className="rounded-3xl bg-blush/40 p-8">
             <h3 className="font-serif-display text-xl font-semibold text-cocoa">Contact details</h3>
-            <ul className="mt-4 space-y-3 text-sm text-cocoa-light">
+            <ul className="mt-4 space-y-3 text-base text-cocoa-light">
               <li>
                 <span className="block font-semibold text-cocoa">Email</span>
                 <a href={`mailto:${siteConfig.email}`} className="hover:text-rose-dark">
@@ -53,7 +53,7 @@ export default function ContactPage() {
 
           <StaggerItem className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-cocoa/5">
             <h3 className="font-serif-display text-xl font-semibold text-cocoa">Opening hours</h3>
-            <ul className="mt-4 space-y-2 text-sm text-cocoa-light">
+            <ul className="mt-4 space-y-2 text-base text-cocoa-light">
               {siteConfig.hours.map((h) => (
                 <li key={h.day} className="flex justify-between gap-4">
                   <span>{h.day}</span>
@@ -65,7 +65,7 @@ export default function ContactPage() {
 
           <StaggerItem className="rounded-3xl bg-cocoa p-8 text-cream">
             <h3 className="font-serif-display text-xl font-semibold">Prefer to message us?</h3>
-            <p className="mt-2 text-sm text-blush">
+            <p className="mt-2 text-base text-blush">
               Reach out on WhatsApp or social media for a quicker response.
             </p>
             <div className="mt-5 flex gap-3">

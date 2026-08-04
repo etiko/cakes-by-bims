@@ -60,7 +60,7 @@ export default function AboutPage() {
             title="We don't just bake for the occasion"
             description="We engage our clients from enquiry stage through to planning and decorating, ensuring the cake, flowers and venue decoration are integrated to get a perfect blend for your day. Be it your wedding cake, dedication cake, celebration cake, baby shower or graduation — you can count on us to make it memorable."
           />
-          <p className="mt-6 max-w-xl text-sm leading-relaxed text-cocoa-light">
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-cocoa-light">
             Every order is handled personally, from your very first message to the moment your
             cake is delivered and set up. We take the time to understand your event so the cake
             feels like a natural part of the celebration, not an afterthought.
@@ -96,8 +96,8 @@ export default function AboutPage() {
               key={value.title}
               className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-cocoa/5 transition-shadow hover:shadow-lg"
             >
-              <h3 className="font-serif-display text-lg font-semibold text-cocoa">{value.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-cocoa-light">{value.copy}</p>
+              <h3 className="font-serif-display text-xl font-semibold text-cocoa">{value.title}</h3>
+              <p className="mt-2 text-base leading-relaxed text-cocoa-light">{value.copy}</p>
             </StaggerItem>
           ))}
         </StaggerGroup>

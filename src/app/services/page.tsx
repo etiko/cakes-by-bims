@@ -52,11 +52,11 @@ export default function ServicesPage() {
           <Reveal delay={0.1} className="mx-auto mt-12 max-w-3xl divide-y divide-cocoa/10 rounded-2xl bg-white shadow-sm ring-1 ring-cocoa/5">
             {faqs.map((faq) => (
               <details key={faq.question} className="group p-6 open:bg-blush/20">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif-display text-lg font-semibold text-cocoa">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif-display text-xl font-semibold text-cocoa">
                   {faq.question}
                   <span className="shrink-0 text-rose transition-transform group-open:rotate-45">+</span>
                 </summary>
-                <p className="mt-3 text-sm leading-relaxed text-cocoa-light">{faq.answer}</p>
+                <p className="mt-3 text-base leading-relaxed text-cocoa-light">{faq.answer}</p>
               </details>
             ))}
           </Reveal>

@@ -23,12 +23,12 @@ export function ServiceCard({ service }: { service: ServiceItem }) {
       </div>
       <div className="flex flex-1 flex-col gap-3 p-6">
         <div className="flex items-start justify-between gap-3">
-          <h3 className="font-serif-display text-xl font-semibold text-cocoa">{service.title}</h3>
+          <h3 className="font-serif-display text-2xl font-semibold text-cocoa">{service.title}</h3>
           <span className="whitespace-nowrap rounded-full bg-blush px-3 py-1 text-xs font-semibold text-rose-dark">
             From {service.startingFrom}
           </span>
         </div>
-        <p className="text-sm leading-relaxed text-cocoa-light">{service.description}</p>
+        <p className="text-base leading-relaxed text-cocoa-light">{service.description}</p>
       </div>
     </motion.div>
   );

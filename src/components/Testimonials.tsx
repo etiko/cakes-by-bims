@@ -27,10 +27,10 @@ export function Testimonials() {
       {testimonials.map((t) => (
         <StaggerItem key={t.name}>
           <figure className="flex h-full flex-col justify-between rounded-2xl bg-white p-8 shadow-sm ring-1 ring-cocoa/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-            <blockquote className="font-serif-display text-lg leading-relaxed text-cocoa">
+            <blockquote className="font-serif-display text-xl leading-relaxed text-cocoa">
               &ldquo;{t.quote}&rdquo;
             </blockquote>
-            <figcaption className="mt-6 text-sm">
+            <figcaption className="mt-6 text-base">
               <span className="block font-semibold text-rose-dark">{t.name}</span>
               <span className="text-cocoa-light">{t.event}</span>
             </figcaption>

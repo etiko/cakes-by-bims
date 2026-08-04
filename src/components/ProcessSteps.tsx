@@ -10,8 +10,8 @@ export function ProcessSteps() {
             <span className="font-serif-display text-5xl font-semibold text-blush-dark">
               {String(index + 1).padStart(2, "0")}
             </span>
-            <h3 className="mt-4 font-serif-display text-lg font-semibold text-cocoa">{step.title}</h3>
-            <p className="mt-2 text-sm leading-relaxed text-cocoa-light">{step.description}</p>
+            <h3 className="mt-4 font-serif-display text-xl font-semibold text-cocoa">{step.title}</h3>
+            <p className="mt-2 text-base leading-relaxed text-cocoa-light">{step.description}</p>
           </div>
         </StaggerItem>
       ))}
