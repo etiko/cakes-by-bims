@@ -50,3 +50,22 @@ body {
     padding-inline: 2.5rem;
   }
 }
+
+.text-hero {
+  font-size: clamp(3rem, 5vw + 1.5rem, 6.5rem);
+  line-height: 0.98;
+  letter-spacing: -0.02em;
+}
+
+.text-display {
+  font-size: clamp(2.25rem, 2.5vw + 1.25rem, 3.75rem);
+  line-height: 1.02;
+  letter-spacing: -0.015em;
+}
+
+.bg-noise-blob {
+  background: radial-gradient(circle at 30% 30%, var(--color-blush) 0%, transparent 60%),
+    radial-gradient(circle at 70% 70%, var(--color-rose) 0%, transparent 55%);
+  filter: blur(60px);
+  opacity: 0.5;
+}

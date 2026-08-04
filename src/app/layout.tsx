@@ -3,6 +3,7 @@ import { Playfair_Display, Jost } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { SmoothScroll } from "@/components/SmoothScroll";
 import { siteConfig } from "@/lib/site-config";
 
 const playfair = Playfair_Display({
@@ -43,6 +44,7 @@ export default function RootLayout({
   return (
     <html lang="en-GB" className={`${playfair.variable} ${jost.variable} h-full antialiased`}>
       <body className="min-h-full flex flex-col bg-cream text-cocoa">
+        <SmoothScroll />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

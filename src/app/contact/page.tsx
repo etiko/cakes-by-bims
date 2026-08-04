@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { ContactForm } from "@/components/ContactForm";
 import { siteConfig } from "@/lib/site-config";
 import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "@/components/icons";
+import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/Reveal";
 
 export const metadata: Metadata = {
   title: "Contact",
@@ -23,11 +24,13 @@ export default function ContactPage() {
       />
 
       <section className="section-container grid gap-12 py-24 lg:grid-cols-[3fr_2fr]">
-        <ContactForm />
+        <Reveal>
+          <ContactForm />
+        </Reveal>
 
-        <div className="flex flex-col gap-8">
-          <div className="rounded-3xl bg-blush/40 p-8">
-            <h3 className="font-serif-display text-xl text-cocoa">Contact details</h3>
+        <StaggerGroup className="flex flex-col gap-8">
+          <StaggerItem className="rounded-3xl bg-blush/40 p-8">
+            <h3 className="font-serif-display text-xl font-semibold text-cocoa">Contact details</h3>
             <ul className="mt-4 space-y-3 text-sm text-cocoa-light">
               <li>
                 <span className="block font-semibold text-cocoa">Email</span>
@@ -46,10 +49,10 @@ export default function ContactPage() {
                 {siteConfig.serviceArea}
               </li>
             </ul>
-          </div>
+          </StaggerItem>
 
-          <div className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-cocoa/5">
-            <h3 className="font-serif-display text-xl text-cocoa">Opening hours</h3>
+          <StaggerItem className="rounded-3xl bg-white p-8 shadow-sm ring-1 ring-cocoa/5">
+            <h3 className="font-serif-display text-xl font-semibold text-cocoa">Opening hours</h3>
             <ul className="mt-4 space-y-2 text-sm text-cocoa-light">
               {siteConfig.hours.map((h) => (
                 <li key={h.day} className="flex justify-between gap-4">
@@ -58,10 +61,10 @@ export default function ContactPage() {
                 </li>
               ))}
             </ul>
-          </div>
+          </StaggerItem>
 
-          <div className="rounded-3xl bg-cocoa p-8 text-cream">
-            <h3 className="font-serif-display text-xl">Prefer to message us?</h3>
+          <StaggerItem className="rounded-3xl bg-cocoa p-8 text-cream">
+            <h3 className="font-serif-display text-xl font-semibold">Prefer to message us?</h3>
             <p className="mt-2 text-sm text-blush">
               Reach out on WhatsApp or social media for a quicker response.
             </p>
@@ -94,8 +97,8 @@ export default function ContactPage() {
                 <FacebookIcon className="h-5 w-5" />
               </a>
             </div>
-          </div>
-        </div>
+          </StaggerItem>
+        </StaggerGroup>
       </section>
     </>
   );

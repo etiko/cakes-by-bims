@@ -4,6 +4,7 @@ import { Hero } from "@/components/Hero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ProcessSteps } from "@/components/ProcessSteps";
 import { CTASection } from "@/components/CTASection";
+import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/Reveal";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -43,7 +44,7 @@ export default function AboutPage() {
       />
 
       <section className="section-container grid gap-12 py-24 md:grid-cols-2 md:items-center">
-        <div className="relative aspect-[4/5] overflow-hidden rounded-3xl">
+        <Reveal className="relative aspect-[4/5] overflow-hidden rounded-3xl">
           <Image
             src="/images/cake-chocolate-drip.jpg"
             alt="Chocolate drip celebration cake decorated with piped chocolate swirls"
@@ -51,8 +52,8 @@ export default function AboutPage() {
             sizes="(min-width: 768px) 50vw, 100vw"
             className="object-cover"
           />
-        </div>
-        <div>
+        </Reveal>
+        <Reveal delay={0.15}>
           <SectionHeading
             align="left"
             eyebrow="Beautiful Craft"
@@ -64,16 +65,18 @@ export default function AboutPage() {
             cake is delivered and set up. We take the time to understand your event so the cake
             feels like a natural part of the celebration, not an afterthought.
           </p>
-        </div>
+        </Reveal>
       </section>
 
       <section className="bg-blush/40 py-24">
         <div className="section-container">
-          <SectionHeading
-            eyebrow="How We Work"
-            title="From enquiry to celebration"
-            description="A simple, personal process designed to take the stress out of ordering a bespoke cake."
-          />
+          <Reveal>
+            <SectionHeading
+              eyebrow="How We Work"
+              title="From enquiry to celebration"
+              description="A simple, personal process designed to take the stress out of ordering a bespoke cake."
+            />
+          </Reveal>
           <div className="mt-12">
             <ProcessSteps />
           </div>
@@ -81,18 +84,23 @@ export default function AboutPage() {
       </section>
 
       <section className="section-container py-24">
-        <SectionHeading
-          eyebrow="Why Choose Us"
-          title="What makes CakesbyBIMS different"
-        />
-        <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <Reveal>
+          <SectionHeading
+            eyebrow="Why Choose Us"
+            title="What makes CakesbyBIMS different"
+          />
+        </Reveal>
+        <StaggerGroup className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {values.map((value) => (
-            <div key={value.title} className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-cocoa/5">
-              <h3 className="font-serif-display text-lg text-cocoa">{value.title}</h3>
+            <StaggerItem
+              key={value.title}
+              className="rounded-2xl bg-white p-6 shadow-sm ring-1 ring-cocoa/5 transition-shadow hover:shadow-lg"
+            >
+              <h3 className="font-serif-display text-lg font-semibold text-cocoa">{value.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-cocoa-light">{value.copy}</p>
-            </div>
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </section>
 
       <CTASection

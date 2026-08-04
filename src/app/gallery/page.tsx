@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { GalleryExplorer } from "@/components/GalleryExplorer";
 import { CTASection } from "@/components/CTASection";
+import { Reveal } from "@/components/motion/Reveal";
 
 export const metadata: Metadata = {
   title: "Gallery",
@@ -23,11 +24,13 @@ export default function GalleryPage() {
       />
 
       <section className="section-container py-24">
-        <SectionHeading
-          eyebrow="Browse By Category"
-          title="Find inspiration for your celebration"
-          description="Filter by occasion to see the styles and flavours we can create for you."
-        />
+        <Reveal>
+          <SectionHeading
+            eyebrow="Browse By Category"
+            title="Find inspiration for your celebration"
+            description="Filter by occasion to see the styles and flavours we can create for you."
+          />
+        </Reveal>
         <div className="mt-12">
           <GalleryExplorer />
         </div>

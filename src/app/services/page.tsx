@@ -3,6 +3,7 @@ import { Hero } from "@/components/Hero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
 import { CTASection } from "@/components/CTASection";
+import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/Reveal";
 import { services, faqs } from "@/lib/services-data";
 
 export const metadata: Metadata = {
@@ -24,35 +25,41 @@ export default function ServicesPage() {
       />
 
       <section className="section-container py-24">
-        <SectionHeading
-          eyebrow="What We Offer"
-          title="Choose your occasion"
-        />
-        <div className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <Reveal>
+          <SectionHeading
+            eyebrow="What We Offer"
+            title="Choose your occasion"
+          />
+        </Reveal>
+        <StaggerGroup className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <ServiceCard key={service.id} service={service} />
+            <StaggerItem key={service.id}>
+              <ServiceCard service={service} />
+            </StaggerItem>
           ))}
-        </div>
+        </StaggerGroup>
       </section>
 
       <section className="bg-blush/40 py-24">
         <div className="section-container">
-          <SectionHeading
-            eyebrow="Good To Know"
-            title="Frequently asked questions"
-            description="Everything you need to know before placing your order."
-          />
-          <div className="mx-auto mt-12 max-w-3xl divide-y divide-cocoa/10 rounded-2xl bg-white shadow-sm ring-1 ring-cocoa/5">
+          <Reveal>
+            <SectionHeading
+              eyebrow="Good To Know"
+              title="Frequently asked questions"
+              description="Everything you need to know before placing your order."
+            />
+          </Reveal>
+          <Reveal delay={0.1} className="mx-auto mt-12 max-w-3xl divide-y divide-cocoa/10 rounded-2xl bg-white shadow-sm ring-1 ring-cocoa/5">
             {faqs.map((faq) => (
               <details key={faq.question} className="group p-6 open:bg-blush/20">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif-display text-lg text-cocoa">
+                <summary className="flex cursor-pointer list-none items-center justify-between gap-4 font-serif-display text-lg font-semibold text-cocoa">
                   {faq.question}
                   <span className="shrink-0 text-rose transition-transform group-open:rotate-45">+</span>
                 </summary>
                 <p className="mt-3 text-sm leading-relaxed text-cocoa-light">{faq.answer}</p>
               </details>
             ))}
-          </div>
+          </Reveal>
         </div>
       </section>
 

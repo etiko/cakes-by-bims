@@ -1,3 +1,5 @@
+import { StaggerGroup, StaggerItem } from "./motion/Reveal";
+
 const testimonials = [
   {
     quote:
@@ -21,21 +23,20 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <div className="grid gap-6 md:grid-cols-3">
+    <StaggerGroup className="grid gap-6 md:grid-cols-3">
       {testimonials.map((t) => (
-        <figure
-          key={t.name}
-          className="flex flex-col justify-between rounded-2xl bg-white p-8 shadow-sm ring-1 ring-cocoa/5"
-        >
-          <blockquote className="font-serif-display text-lg leading-relaxed text-cocoa">
-            &ldquo;{t.quote}&rdquo;
-          </blockquote>
-          <figcaption className="mt-6 text-sm">
-            <span className="block font-semibold text-rose-dark">{t.name}</span>
-            <span className="text-cocoa-light">{t.event}</span>
-          </figcaption>
-        </figure>
+        <StaggerItem key={t.name}>
+          <figure className="flex h-full flex-col justify-between rounded-2xl bg-white p-8 shadow-sm ring-1 ring-cocoa/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <blockquote className="font-serif-display text-lg leading-relaxed text-cocoa">
+              &ldquo;{t.quote}&rdquo;
+            </blockquote>
+            <figcaption className="mt-6 text-sm">
+              <span className="block font-semibold text-rose-dark">{t.name}</span>
+              <span className="text-cocoa-light">{t.event}</span>
+            </figcaption>
+          </figure>
+        </StaggerItem>
       ))}
-    </div>
+    </StaggerGroup>
   );
 }

@@ -26,14 +26,14 @@ export function SectionHeading({
         </span>
       ) : null}
       <h2
-        className={`font-serif-display text-3xl md:text-4xl ${
+        className={`text-display font-serif-display font-semibold ${
           light ? "text-cream" : "text-cocoa"
         }`}
       >
         {title}
       </h2>
       {description ? (
-        <p className={`text-base leading-relaxed ${light ? "text-blush" : "text-cocoa-light"}`}>
+        <p className={`text-base leading-relaxed md:text-lg ${light ? "text-blush" : "text-cocoa-light"}`}>
           {description}
         </p>
       ) : null}

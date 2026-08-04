@@ -1,17 +1,20 @@
 import { processSteps } from "@/lib/services-data";
+import { StaggerGroup, StaggerItem } from "./motion/Reveal";
 
 export function ProcessSteps() {
   return (
-    <ol className="grid gap-8 md:grid-cols-4">
+    <StaggerGroup className="grid gap-8 md:grid-cols-4">
       {processSteps.map((step, index) => (
-        <li key={step.title} className="relative rounded-2xl bg-white p-6 shadow-sm ring-1 ring-cocoa/5">
-          <span className="font-serif-display text-4xl text-blush-dark">
-            {String(index + 1).padStart(2, "0")}
-          </span>
-          <h3 className="mt-4 font-serif-display text-lg text-cocoa">{step.title}</h3>
-          <p className="mt-2 text-sm leading-relaxed text-cocoa-light">{step.description}</p>
-        </li>
+        <StaggerItem key={step.title}>
+          <div className="relative h-full rounded-2xl bg-white p-6 shadow-sm ring-1 ring-cocoa/5 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
+            <span className="font-serif-display text-5xl font-semibold text-blush-dark">
+              {String(index + 1).padStart(2, "0")}
+            </span>
+            <h3 className="mt-4 font-serif-display text-lg font-semibold text-cocoa">{step.title}</h3>
+            <p className="mt-2 text-sm leading-relaxed text-cocoa-light">{step.description}</p>
+          </div>
+        </StaggerItem>
       ))}
-    </ol>
+    </StaggerGroup>
   );
 }
