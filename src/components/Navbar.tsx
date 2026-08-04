@@ -60,7 +60,7 @@ export function Navbar() {
                   <motion.span
                     layoutId="nav-underline"
                     className={`absolute -bottom-1.5 left-0 h-px w-full rounded-full ${
-                      scrolled ? "bg-rose" : "bg-gold"
+                      scrolled ? "bg-rose" : "bg-cream"
                     }`}
                   />
                 ) : null}

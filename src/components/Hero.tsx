@@ -72,8 +72,9 @@ export function Hero({
       >
         <motion.span
           variants={reduceMotion ? undefined : item}
-          className="text-xs font-semibold uppercase tracking-[0.35em] text-gold"
+          className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.35em] text-cream"
         >
+          <span aria-hidden="true" className="h-px w-6 bg-gold" />
           {eyebrow}
         </motion.span>
         <motion.h1
