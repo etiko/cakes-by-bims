@@ -47,7 +47,9 @@ export function Navbar() {
                 href={link.href}
                 className={`relative text-xs font-medium uppercase tracking-[0.2em] transition-colors ${
                   active
-                    ? "text-rose"
+                    ? scrolled
+                      ? "text-rose"
+                      : "text-cream"
                     : scrolled
                       ? "text-cocoa/80 hover:text-rose"
                       : "text-cream/90 hover:text-cream"
@@ -57,7 +59,9 @@ export function Navbar() {
                 {active ? (
                   <motion.span
                     layoutId="nav-underline"
-                    className="absolute -bottom-1.5 left-0 h-px w-full rounded-full bg-rose"
+                    className={`absolute -bottom-1.5 left-0 h-px w-full rounded-full ${
+                      scrolled ? "bg-rose" : "bg-gold"
+                    }`}
                   />
                 ) : null}
               </Link>
