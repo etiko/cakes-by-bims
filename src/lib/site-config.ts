@@ -23,6 +23,7 @@ export const siteConfig = {
   },
 } as const;
 
+// Primary navigation shown in the header and mobile menu.
 export const navLinks = [
   { href: "/", label: "Home" },
   { href: "/about", label: "About" },
@@ -30,3 +31,6 @@ export const navLinks = [
   { href: "/services", label: "Services" },
   { href: "/contact", label: "Contact" },
 ] as const;
+
+// Secondary links, surfaced only in the footer to keep the header uncluttered.
+export const secondaryNavLinks = [{ href: "/flavours", label: "Flavours" }] as const;

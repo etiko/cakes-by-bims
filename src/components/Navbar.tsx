@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -73,21 +74,33 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 h-20 border-b transition-all duration-500 ${
-        showSolidChrome
-          ? "border-cocoa/10 bg-cream/95 shadow-sm backdrop-blur-md"
-          : "border-transparent bg-transparent"
+      className={`fixed inset-x-0 top-0 z-50 h-24 transition-all duration-500 ${
+        showSolidChrome ? "bg-cream/95 shadow-sm backdrop-blur-md" : "bg-transparent"
       }`}
     >
       <div className="section-container flex h-full items-center justify-between">
         <Link
           href="/"
-          className={`z-10 font-serif-display text-xl font-medium tracking-wide transition-all hover:scale-[1.02] md:text-2xl ${
-            showSolidChrome ? "text-cocoa" : "text-cream"
-          }`}
+          className="z-10 flex items-center transition-transform hover:scale-[1.02]"
           onClick={() => setOpen(false)}
         >
-          {siteConfig.name}
+          <span
+            className={`flex items-center justify-center rounded-full p-1.5 transition-all duration-500 ease-out ${
+              showSolidChrome
+                ? "bg-transparent shadow-none backdrop-blur-none"
+                : "bg-cream/90 shadow-md backdrop-blur-sm"
+            }`}
+          >
+            <Image
+              src="/images/logo.png"
+              alt={siteConfig.name}
+              width={512}
+              height={512}
+              priority
+              className="h-16 w-16 object-contain md:h-20 md:w-20"
+            />
+          </span>
+          <span className="sr-only">{siteConfig.name}</span>
         </Link>
 
         <nav className="hidden items-center gap-10 md:flex">
@@ -121,9 +134,7 @@ export function Navbar() {
           })}
           <Link
             href="/contact"
-            className={`rounded-full border px-5 py-2.5 text-xs font-medium uppercase tracking-[0.2em] transition-all hover:-translate-y-0.5 hover:border-rose hover:text-rose ${
-              scrolled ? "border-cocoa/20 text-cocoa" : "border-cream/40 text-cream"
-            }`}
+            className="rounded-full bg-rose px-5 py-2.5 text-xs font-semibold uppercase tracking-[0.2em] text-cream shadow-[0_6px_20px_-6px_rgba(193,123,126,0.75)] transition-all hover:-translate-y-0.5 hover:bg-rose-dark hover:shadow-[0_10px_26px_-4px_rgba(193,123,126,0.9)]"
           >
             Get a Quote
           </Link>
@@ -156,7 +167,7 @@ export function Navbar() {
               animate="show"
               exit="exit"
               variants={panelVariants}
-              className="absolute inset-y-0 right-0 flex h-dvh w-[86%] max-w-sm flex-col bg-cream pt-20 shadow-2xl"
+              className="absolute inset-y-0 right-0 flex h-dvh w-[86%] max-w-sm flex-col bg-cream pt-24 shadow-2xl"
             >
               <motion.ul
                 variants={linkListVariants}

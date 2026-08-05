@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { navLinks, siteConfig } from "@/lib/site-config";
+import { navLinks, secondaryNavLinks, siteConfig } from "@/lib/site-config";
 import { FacebookIcon, InstagramIcon, WhatsAppIcon } from "./icons";
 
 export function Footer() {
@@ -46,6 +46,13 @@ export function Footer() {
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-gold">Explore</p>
           <ul className="mt-4 space-y-2 text-sm">
             {navLinks.map((link) => (
+              <li key={link.href}>
+                <Link href={link.href} className="text-blush/80 hover:text-cream">
+                  {link.label}
+                </Link>
+              </li>
+            ))}
+            {secondaryNavLinks.map((link) => (
               <li key={link.href}>
                 <Link href={link.href} className="text-blush/80 hover:text-cream">
                   {link.label}
