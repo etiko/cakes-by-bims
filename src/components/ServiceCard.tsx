@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "motion/react";
 import type { ServiceItem } from "@/lib/services-data";
 
@@ -22,13 +23,17 @@ export function ServiceCard({ service }: { service: ServiceItem }) {
         <div className="absolute inset-0 bg-gradient-to-t from-cocoa/40 to-transparent opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
       </div>
       <div className="flex flex-1 flex-col gap-3 p-6">
-        <div className="flex items-start justify-between gap-3">
-          <h3 className="font-serif-display text-2xl font-semibold text-cocoa">{service.title}</h3>
-          <span className="whitespace-nowrap rounded-full bg-blush px-3 py-1 text-xs font-semibold text-rose-dark">
-            From {service.startingFrom}
+        <h3 className="font-serif-display text-2xl font-semibold text-cocoa">{service.title}</h3>
+        <p className="flex-1 text-base leading-relaxed text-cocoa-light">{service.description}</p>
+        <Link
+          href="/contact"
+          className="mt-1 inline-flex w-fit items-center gap-1.5 text-sm font-semibold text-rose-dark transition-colors hover:text-cocoa"
+        >
+          Get a Quote
+          <span aria-hidden="true" className="transition-transform group-hover:translate-x-1">
+            →
           </span>
-        </div>
-        <p className="text-base leading-relaxed text-cocoa-light">{service.description}</p>
+        </Link>
       </div>
     </motion.div>
   );

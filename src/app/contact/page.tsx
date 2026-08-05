@@ -18,7 +18,7 @@ export default function ContactPage() {
         eyebrow="Get In Touch"
         title="Let's plan your cake"
         description="Share your event details below, or reach us directly by phone, email or social media — we typically reply within 24 hours."
-        image="/images/cake-mint-cupcakes.jpg"
+        image="/images/dessert-favours.jpg"
         imageAlt="Pastel mint cupcakes with sprinkles"
         compact
       />

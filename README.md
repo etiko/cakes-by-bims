@@ -10,7 +10,7 @@ Each top navigation link routes to its own dedicated page (no scroll-anchors mix
 - `/` — Home
 - `/about` — Our Story
 - `/gallery` — Filterable cake gallery with lightbox
-- `/services` — Services, indicative pricing and FAQ
+- `/services` — Services and FAQ
 - `/contact` — Enquiry form + contact details
 
 ## Getting started
@@ -32,11 +32,13 @@ realistic copy, but the following should be swapped for the real details before 
 
 - `src/lib/site-config.ts` — phone number, email address, WhatsApp number, service area and
   opening hours are placeholders.
-- `src/lib/services-data.ts` — starting prices are indicative guides, not confirmed pricing.
-- `src/lib/gallery-data.ts` — gallery photography is royalty-free stock (Unsplash) standing in for
-  real photos of CakesbyBIMS' own cakes; swap `public/images/*.jpg` for real photography and update
-  the matching `alt` text.
 - `src/components/Testimonials.tsx` — testimonials are illustrative placeholders.
+
+Service pricing was removed intentionally: the live site never published real prices, so each
+service card now links to the Contact page for a tailored quote instead of showing a fabricated
+"from £X" figure. Gallery and hero photography (`public/images/*.jpg`, referenced from
+`src/lib/gallery-data.ts` and `src/lib/services-data.ts`) has been swapped from stock photos for
+real CakesbyBIMS cake photography sourced from the live site's media library.
 
 ## Contact form
 

@@ -6,6 +6,7 @@ import { Testimonials } from "@/components/Testimonials";
 import { CTASection } from "@/components/CTASection";
 import { Button } from "@/components/Button";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/Reveal";
+import { BackToTop } from "@/components/BackToTop";
 import { services } from "@/lib/services-data";
 import { galleryItems } from "@/lib/gallery-data";
 import { siteConfig } from "@/lib/site-config";
@@ -13,7 +14,7 @@ import { InstagramIcon } from "@/components/icons";
 
 export default function HomePage() {
   const featuredServices = services.slice(0, 3);
-  const previewGallery = galleryItems.slice(0, 6);
+  const previewGallery = galleryItems.slice(0, 3);
 
   return (
     <>
@@ -21,8 +22,8 @@ export default function HomePage() {
         eyebrow="Beautiful Craft"
         title={siteConfig.tagline}
         description={siteConfig.description}
-        image="/images/hero-wedding-cake.jpg"
-        imageAlt="Elegant four-tier white wedding cake decorated with fresh roses"
+        image="/images/wedding-cake-display.jpg"
+        imageAlt="Showcase of bespoke tiered wedding cakes at a wedding fair display"
         primaryCta={{ href: "/contact", label: "Enquire Now" }}
         secondaryCta={{ href: "/gallery", label: "View Gallery" }}
         badge="Trusted for weddings, celebrations & dedications across the UK"
@@ -136,6 +137,7 @@ export default function HomePage() {
           </a>
         </Reveal>
       </section>
+      <BackToTop />
     </>
   );
 }

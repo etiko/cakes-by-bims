@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    images: ["/images/hero-wedding-cake.jpg"],
+    images: ["/images/wedding-cake-tall-roses.jpg"],
     locale: "en_GB",
     type: "website",
   },

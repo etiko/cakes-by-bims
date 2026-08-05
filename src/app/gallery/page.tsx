@@ -18,8 +18,8 @@ export default function GalleryPage() {
         eyebrow="Our Work"
         title="A gallery of our cakes"
         description="A selection of wedding, celebration, baby shower and dedication cakes we've had the pleasure of creating."
-        image="/images/cake-pink-drip.jpg"
-        imageAlt="Pink drip birthday cake with a waffle cone topper"
+        image="/images/wedding-cake-pearl-drape.jpg"
+        imageAlt="Suspended pearl and floral wedding cake with a hanging rose garland"
         compact
       />
 

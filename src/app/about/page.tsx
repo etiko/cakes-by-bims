@@ -38,16 +38,16 @@ export default function AboutPage() {
         eyebrow="Our Story"
         title="Baked with love, crafted with care"
         description="CakesbyBIMS began with a simple belief: a cake should be as memorable as the occasion itself. Attention to detail is our watch word, from the first enquiry to the final slice."
-        image="/images/cake-berry-tier.jpg"
-        imageAlt="Naked wedding cake decorated with fresh berries"
+        image="/images/wedding-cake-tall-roses.jpg"
+        imageAlt="Elegant four-tier white wedding cake decorated with fresh roses"
         compact
       />
 
       <section className="section-container grid gap-12 py-24 md:grid-cols-2 md:items-center">
         <Reveal className="relative aspect-[4/5] overflow-hidden rounded-3xl">
           <Image
-            src="/images/cake-chocolate-drip.jpg"
-            alt="Chocolate drip celebration cake decorated with piped chocolate swirls"
+            src="/images/wedding-cake-ivory-mr.jpg"
+            alt="Suspended ivory and gold wedding cake with monogram plaque"
             fill
             sizes="(min-width: 768px) 50vw, 100vw"
             className="object-cover"

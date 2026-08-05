@@ -9,7 +9,7 @@ import { services, faqs } from "@/lib/services-data";
 export const metadata: Metadata = {
   title: "Services & Pricing",
   description:
-    "Explore CakesbyBIMS services — wedding cakes, celebration cakes, baby shower cakes, graduation cakes and cupcakes, with indicative starting prices.",
+    "Explore CakesbyBIMS services — wedding cakes, celebration cakes, baby shower cakes, graduation cakes and cupcakes, all made to order.",
 };
 
 export default function ServicesPage() {
@@ -18,8 +18,8 @@ export default function ServicesPage() {
       <Hero
         eyebrow="Services"
         title="Cakes for every celebration"
-        description="Browse our range of bespoke cakes and desserts. Every price is a starting guide — we'll confirm an exact quote after your consultation."
-        image="/images/cake-tiramisu.jpg"
+        description="Browse our range of bespoke cakes and desserts. Get in touch with your event details and we'll send a tailored quote."
+        image="/images/celebration-figurine-cake.jpg"
         imageAlt="Elegant layered tiramisu-style celebration cake"
         compact
       />

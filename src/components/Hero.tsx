@@ -52,12 +52,13 @@ export function Hero({
       ref={sectionRef}
       className={`relative ${compact ? "min-h-[56vh]" : "min-h-[92vh]"} flex items-center overflow-hidden`}
     >
-      <motion.div className="absolute inset-0 scale-110" style={{ y }}>
+      <motion.div className="absolute inset-0 scale-105" style={{ y }}>
         <Image
           src={image}
           alt={imageAlt}
           fill
           priority
+          quality={90}
           sizes="100vw"
           className="object-cover object-center"
         />

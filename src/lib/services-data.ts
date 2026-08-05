@@ -2,7 +2,6 @@ export interface ServiceItem {
   id: string;
   title: string;
   description: string;
-  startingFrom: string;
   image: string;
 }
 
@@ -12,48 +11,42 @@ export const services: ServiceItem[] = [
     title: "Wedding Cakes",
     description:
       "Bespoke tiered wedding cakes designed around your colour palette, venue and flowers, from intimate two-tiers to grand five-tier showstoppers.",
-    startingFrom: "£250",
-    image: "/images/hero-wedding-cake.jpg",
+    image: "/images/wedding-cake-tall-roses.jpg",
   },
   {
     id: "celebration-cakes",
     title: "Celebration Cakes",
     description:
       "Birthdays, anniversaries and milestones deserve a centrepiece. Choose from drip cakes, fondant sculpting or elegant buttercream finishes.",
-    startingFrom: "£65",
-    image: "/images/cake-chocolate-drip.jpg",
+    image: "/images/birthday-black-gold-cake.jpg",
   },
   {
     id: "baby-shower-dedication",
     title: "Baby Shower & Dedication Cakes",
     description:
       "Soft palettes and delicate detailing to mark a new arrival, christening or dedication in style.",
-    startingFrom: "£55",
-    image: "/images/cake-mint-cupcakes.jpg",
+    image: "/images/baby-shower-gold-cake.jpg",
   },
   {
     id: "graduation-cakes",
     title: "Graduation Cakes",
     description:
       "Celebrate the achievement with a custom cake featuring school colours, mortarboards or edible photo toppers.",
-    startingFrom: "£60",
-    image: "/images/cake-rainbow-slice.jpg",
+    image: "/images/graduation-cake.jpg",
   },
   {
     id: "cupcakes-favours",
     title: "Cupcakes & Favours",
     description:
       "Beautifully finished cupcakes and dessert favours, perfect as a standalone treat table or alongside your main cake.",
-    startingFrom: "£24 / dozen",
-    image: "/images/cake-vanilla-cupcakes.jpg",
+    image: "/images/dessert-favours.jpg",
   },
   {
     id: "bespoke-desserts",
     title: "Bespoke Desserts",
     description:
       "From layered tiramisu-style cakes to fruit-topped naked cakes, we design a dessert table to match any occasion.",
-    startingFrom: "£45",
-    image: "/images/cake-tiramisu.jpg",
+    image: "/images/jar-desserts.jpg",
   },
 ];
 
@@ -99,7 +92,7 @@ export const faqs = [
   {
     question: "How much does a cake cost?",
     answer:
-      "Pricing depends on size, tiers, and design complexity. The prices on our Services page are starting guides — we'll confirm an exact quote after your consultation.",
+      "Pricing depends on size, tiers, and design complexity. Share your event details on the Contact page and we'll send a tailored quote.",
   },
   {
     question: "Can I book a tasting?",
