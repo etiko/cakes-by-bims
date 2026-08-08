@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { SectionHeading } from "@/components/SectionHeading";
-import { GalleryExplorer } from "@/components/GalleryExplorer";
+import { GalleryCategoryCard } from "@/components/GalleryCategoryCard";
 import { CTASection } from "@/components/CTASection";
-import { Reveal } from "@/components/motion/Reveal";
+import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/Reveal";
+import { galleryCategories, galleryItems } from "@/lib/gallery-data";
 
 export const metadata: Metadata = {
   title: "Gallery",
   description:
-    "Browse a gallery of bespoke wedding cakes, celebration cakes, baby shower cakes and cupcakes by CakesbyBIMS.",
+    "Browse our cake gallery by category — wedding, children's, baby shower, engagement, celebration, character, graduation cakes, cupcakes and favours by CakesbyBIMS.",
 };
 
 export default function GalleryPage() {
@@ -17,7 +18,7 @@ export default function GalleryPage() {
       <Hero
         eyebrow="Our Work"
         title="A gallery of our cakes"
-        description="A selection of wedding, celebration, baby shower and dedication cakes we've had the pleasure of creating."
+        description="Browse by category to see the full range of wedding, celebration, baby shower and dedication cakes we've had the pleasure of creating."
         image="/images/wedding-cake-pearl-drape.jpg"
         imageAlt="Suspended pearl and floral wedding cake with a hanging rose garland"
         compact
@@ -28,12 +29,21 @@ export default function GalleryPage() {
           <SectionHeading
             eyebrow="Browse By Category"
             title="Find inspiration for your celebration"
-            description="Filter by occasion to see the styles and flavours we can create for you."
+            description="Each category has a full gallery of real cakes we've created — pick one to explore."
           />
         </Reveal>
-        <div className="mt-12">
-          <GalleryExplorer />
-        </div>
+        <StaggerGroup className="mt-12 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+          {galleryCategories.map((category) => {
+            const items = galleryItems.filter((item) => item.category === category.slug);
+            const coverItem = items[0];
+            if (!coverItem) return null;
+            return (
+              <StaggerItem key={category.slug}>
+                <GalleryCategoryCard category={category} coverItem={coverItem} count={items.length} />
+              </StaggerItem>
+            );
+          })}
+        </StaggerGroup>
       </section>
 
       <CTASection

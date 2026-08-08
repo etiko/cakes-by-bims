@@ -18,7 +18,7 @@ export const services: ServiceItem[] = [
     title: "Celebration Cakes",
     description:
       "Birthdays, anniversaries and milestones deserve a centrepiece. Choose from drip cakes, fondant sculpting or elegant buttercream finishes.",
-    image: "/images/birthday-black-gold-cake.jpg",
+    image: "/images/birthday-superhero-tower-cake.jpg",
   },
   {
     id: "baby-shower-dedication",

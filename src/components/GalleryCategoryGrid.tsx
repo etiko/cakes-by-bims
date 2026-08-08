@@ -1,44 +1,19 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
-import { categories, galleryItems, type CakeCategory } from "@/lib/gallery-data";
+import { useState } from "react";
+import type { GalleryItem } from "@/lib/gallery-data";
 import { CloseIcon } from "./icons";
 
-type Filter = "All" | CakeCategory;
-
-export function GalleryExplorer() {
-  const [filter, setFilter] = useState<Filter>("All");
+/** Masonry grid + lightbox for a single gallery category's photos. */
+export function GalleryCategoryGrid({ items }: { items: GalleryItem[] }) {
   const [activeId, setActiveId] = useState<string | null>(null);
-
-  const filtered = useMemo(
-    () => (filter === "All" ? galleryItems : galleryItems.filter((item) => item.category === filter)),
-    [filter],
-  );
-
-  const activeItem = galleryItems.find((item) => item.id === activeId) ?? null;
+  const activeItem = items.find((item) => item.id === activeId) ?? null;
 
   return (
     <div>
-      <div className="flex flex-wrap justify-center gap-3">
-        {(["All", ...categories] as Filter[]).map((cat) => (
-          <button
-            key={cat}
-            type="button"
-            onClick={() => setFilter(cat)}
-            className={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors ${
-              filter === cat
-                ? "bg-rose text-cream"
-                : "bg-white text-cocoa ring-1 ring-cocoa/10 hover:bg-blush"
-            }`}
-          >
-            {cat}
-          </button>
-        ))}
-      </div>
-
-      <div className="mt-12 columns-1 gap-4 sm:columns-2 lg:columns-3">
-        {filtered.map((item) => (
+      <div className="columns-1 gap-4 sm:columns-2 lg:columns-3">
+        {items.map((item) => (
           <button
             key={item.id}
             type="button"

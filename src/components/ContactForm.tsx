@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { siteConfig } from "@/lib/site-config";
 import { services } from "@/lib/services-data";
 
 type Status = "idle" | "submitting" | "success" | "error";
@@ -30,7 +29,7 @@ export function ContactForm() {
     setErrorMessage("");
 
     try {
-      const response = await fetch("/api/contact", {
+      const response = await fetch("/contact.php", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
@@ -111,8 +110,7 @@ export function ContactForm() {
       </button>
 
       <p className="text-xs text-cocoa-light">
-        Your enquiry is sent straight to our team at {siteConfig.email}. We typically reply
-        within 24 hours.
+        Your enquiry is sent straight to our team. We typically reply within 24 hours.
       </p>
 
       {status === "success" ? (
@@ -123,7 +121,7 @@ export function ContactForm() {
 
       {status === "error" ? (
         <p role="alert" className="rounded-xl bg-red-50 px-4 py-3 text-sm text-red-700">
-          {errorMessage} You can also email us directly at {siteConfig.email}.
+          {errorMessage} Please try again, or reach us on social media.
         </p>
       ) : null}
     </form>

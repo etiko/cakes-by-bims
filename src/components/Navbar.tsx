@@ -208,9 +208,8 @@ export function Navbar() {
                 initial="hidden"
                 animate="show"
                 exit="exit"
-                className="flex items-center justify-between gap-4 border-t border-cocoa/10 px-8 py-8 text-sm text-cocoa-light"
+                className="flex items-center justify-center gap-4 border-t border-cocoa/10 px-8 py-8 text-sm text-cocoa-light"
               >
-                <span>{siteConfig.email}</span>
                 <div className="flex items-center gap-4">
                   <a
                     href={siteConfig.social.instagram}
