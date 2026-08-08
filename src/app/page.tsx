@@ -2,7 +2,8 @@ import { Hero } from "@/components/Hero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { ServiceCard } from "@/components/ServiceCard";
 import { GalleryPreviewGrid } from "@/components/GalleryPreviewGrid";
-import { Testimonials } from "@/components/Testimonials";
+// Testimonials temporarily disabled — see commented-out section below.
+// import { Testimonials } from "@/components/Testimonials";
 import { CTASection } from "@/components/CTASection";
 import { Button } from "@/components/Button";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/Reveal";
@@ -99,7 +100,9 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Testimonials */}
+      {/* Testimonials: temporarily disabled until we have real customer
+          reviews to replace the placeholder quotes. Re-enable once real
+          testimonials are supplied.
       <section className="section-container py-24">
         <Reveal>
           <SectionHeading
@@ -112,6 +115,7 @@ export default function HomePage() {
           <Testimonials />
         </div>
       </section>
+      */}
 
       <CTASection
         title="Ready to create something sweet?"
