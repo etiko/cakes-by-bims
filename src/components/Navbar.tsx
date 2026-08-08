@@ -64,9 +64,18 @@ export function Navbar() {
   }
 
   useEffect(() => {
+    // Toggle Lenis (not raw CSS overflow) so its internal scroll state stays
+    // in sync with the DOM — mismatching the two is what causes scrolling to
+    // feel "stuck" after the mobile menu closes.
     document.body.style.overflow = open ? "hidden" : "";
+    if (open) {
+      window.__lenis?.stop();
+    } else {
+      window.__lenis?.start();
+    }
     return () => {
       document.body.style.overflow = "";
+      window.__lenis?.start();
     };
   }, [open]);
 

@@ -6,7 +6,6 @@ import { Testimonials } from "@/components/Testimonials";
 import { CTASection } from "@/components/CTASection";
 import { Button } from "@/components/Button";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/Reveal";
-import { BackToTop } from "@/components/BackToTop";
 import { services } from "@/lib/services-data";
 import { galleryItems } from "@/lib/gallery-data";
 import { siteConfig } from "@/lib/site-config";
@@ -137,7 +136,6 @@ export default function HomePage() {
           </a>
         </Reveal>
       </section>
-      <BackToTop />
     </>
   );
 }

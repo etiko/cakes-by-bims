@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { GalleryItem } from "@/lib/gallery-data";
 import { CloseIcon } from "./icons";
 
@@ -9,6 +9,22 @@ import { CloseIcon } from "./icons";
 export function GalleryCategoryGrid({ items }: { items: GalleryItem[] }) {
   const [activeId, setActiveId] = useState<string | null>(null);
   const activeItem = items.find((item) => item.id === activeId) ?? null;
+
+  useEffect(() => {
+    // Lock scroll via Lenis (not raw CSS overflow) so its internal scroll
+    // state stays in sync with the DOM when the lightbox closes.
+    if (activeItem) {
+      document.body.style.overflow = "hidden";
+      window.__lenis?.stop();
+    } else {
+      document.body.style.overflow = "";
+      window.__lenis?.start();
+    }
+    return () => {
+      document.body.style.overflow = "";
+      window.__lenis?.start();
+    };
+  }, [activeItem]);
 
   return (
     <div>

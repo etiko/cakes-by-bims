@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { SmoothScroll } from "@/components/SmoothScroll";
+import { BackToTop } from "@/components/BackToTop";
 import { siteConfig } from "@/lib/site-config";
 
 const playfair = Playfair_Display({
@@ -48,6 +49,7 @@ export default function RootLayout({
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <BackToTop />
       </body>
     </html>
   );
