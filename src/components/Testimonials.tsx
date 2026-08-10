@@ -5,19 +5,19 @@ const testimonials = [
     quote:
       "Our wedding cake was even more beautiful in person than in the design mock-up. Every guest asked who made it!",
     name: "Amara & Femi",
-    event: "Wedding, Essex",
+    event: "Wedding, Cheshire",
   },
   {
     quote:
       "From the first enquiry to the final delivery, communication was brilliant. The cake tasted as good as it looked.",
     name: "Ronke O.",
-    event: "50th Birthday, London",
+    event: "50th Birthday, Manchester",
   },
   {
     quote:
       "Booked a dedication cake with only two weeks' notice and it was flawless. Will be booking again for our next celebration.",
     name: "Grace T.",
-    event: "Baby Dedication, Kent",
+    event: "Baby Dedication, Stockport",
   },
 ];
 

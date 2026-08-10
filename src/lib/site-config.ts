@@ -1,5 +1,4 @@
 // Central place for business details used across the site.
-// NOTE: serving area is a realistic placeholder — swap for the real details before launch.
 export const siteConfig = {
   name: "CakesbyBIMS",
   tagline: "Baked with Love",
@@ -9,7 +8,7 @@ export const siteConfig = {
   email: "cakesbybims@gmail.com",
   phone: "+44 7515 971282",
   phoneHref: "+447515971282",
-  serviceArea: "London & the Home Counties, with nationwide delivery available",
+  serviceArea: "Manchester & Greater Manchester, with nationwide delivery available",
   hours: [
     { day: "Monday – Friday", time: "9:00am – 6:00pm" },
     { day: "Saturday", time: "10:00am – 4:00pm" },

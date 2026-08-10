@@ -87,7 +87,7 @@ export const faqs = [
   {
     question: "Do you deliver?",
     answer:
-      "We offer local delivery and venue setup across London & the Home Counties, and can arrange nationwide courier delivery for cupcakes and smaller cakes.",
+      "We offer local delivery and venue setup across Manchester & Greater Manchester, and can arrange nationwide courier delivery for cupcakes and smaller cakes.",
   },
   {
     question: "How much does a cake cost?",
