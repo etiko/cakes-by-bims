@@ -18,6 +18,12 @@ export function Footer() {
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-blush/80">
             {siteConfig.tagline}
           </p>
+          <a
+            href={`tel:${siteConfig.phoneHref}`}
+            className="mt-3 block text-sm font-medium text-cream hover:text-rose"
+          >
+            {siteConfig.phone}
+          </a>
           <div className="mt-6 flex items-center gap-4">
             <a
               href={siteConfig.social.facebook}

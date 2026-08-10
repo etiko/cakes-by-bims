@@ -36,6 +36,18 @@ export default function ContactPage() {
                 <span className="block font-semibold text-cocoa">Serving</span>
                 {siteConfig.serviceArea}
               </li>
+              <li>
+                <span className="block font-semibold text-cocoa">Phone</span>
+                <a href={`tel:${siteConfig.phoneHref}`} className="hover:text-rose-dark">
+                  {siteConfig.phone}
+                </a>
+              </li>
+              <li>
+                <span className="block font-semibold text-cocoa">Email</span>
+                <a href={`mailto:${siteConfig.email}`} className="hover:text-rose-dark">
+                  {siteConfig.email}
+                </a>
+              </li>
             </ul>
           </StaggerItem>
 
