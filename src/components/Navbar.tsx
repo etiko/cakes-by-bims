@@ -112,7 +112,7 @@ export function Navbar() {
           <span className="sr-only">{siteConfig.name}</span>
         </Link>
 
-        <nav className="hidden items-center gap-10 md:flex">
+        <nav className="hidden items-center gap-10 lg:flex">
           {navLinks.map((link) => {
             const active = pathname === link.href;
             return (
@@ -151,7 +151,7 @@ export function Navbar() {
 
         <button
           type="button"
-          className={`z-10 md:hidden ${showSolidChrome ? "text-cocoa" : "text-cream"}`}
+          className={`z-10 lg:hidden ${showSolidChrome ? "text-cocoa" : "text-cream"}`}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
           onClick={() => setOpen((v) => !v)}
@@ -162,7 +162,7 @@ export function Navbar() {
 
       <AnimatePresence>
         {open ? (
-          <motion.div key="mobile-menu" className="fixed inset-0 top-0 z-0 md:hidden">
+          <motion.div key="mobile-menu" className="fixed inset-0 top-0 z-0 lg:hidden">
             <motion.div
               initial="hidden"
               animate="show"
