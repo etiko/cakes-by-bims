@@ -18,13 +18,6 @@ export function Footer() {
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-blush/80">
             {siteConfig.tagline}
           </p>
-          <a
-            href={`tel:${siteConfig.phoneHref}`}
-            className="group mt-5 inline-flex items-center gap-2 rounded-full border border-rose/50 bg-rose/10 px-4 py-2 text-sm font-semibold text-cream transition-colors hover:bg-rose hover:border-rose"
-          >
-            <PhoneIcon className="h-4 w-4 text-rose transition-colors group-hover:text-cream" />
-            {siteConfig.phone}
-          </a>
           <div className="mt-6 flex items-center gap-4">
             <a
               href={siteConfig.social.facebook}
@@ -43,6 +36,16 @@ export function Footer() {
               className="rounded-full border border-blush/30 p-2.5 text-cream transition-colors hover:bg-rose hover:border-rose"
             >
               <InstagramIcon className="h-4 w-4" />
+            </a>
+            <a
+              href={`tel:${siteConfig.phoneHref}`}
+              aria-label={`Call ${siteConfig.name} on ${siteConfig.phone}`}
+              className="group relative rounded-full border border-blush/30 p-2.5 text-cream transition-colors hover:bg-rose hover:border-rose"
+            >
+              <PhoneIcon className="h-4 w-4" />
+              <span className="pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 whitespace-nowrap rounded-md border border-blush/20 bg-cocoa px-3 py-1.5 text-xs font-semibold text-cream opacity-0 shadow-lg transition-opacity duration-150 group-hover:opacity-100">
+                {siteConfig.phone}
+              </span>
             </a>
           </div>
         </div>
