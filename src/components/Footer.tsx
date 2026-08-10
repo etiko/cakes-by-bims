@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { navLinks, secondaryNavLinks, siteConfig } from "@/lib/site-config";
-import { FacebookIcon, InstagramIcon } from "./icons";
+import { FacebookIcon, InstagramIcon, PhoneIcon } from "./icons";
 
 export function Footer() {
   return (
@@ -20,8 +20,9 @@ export function Footer() {
           </p>
           <a
             href={`tel:${siteConfig.phoneHref}`}
-            className="mt-3 block text-sm font-medium text-cream hover:text-rose"
+            className="group mt-5 inline-flex items-center gap-2 rounded-full border border-rose/50 bg-rose/10 px-4 py-2 text-sm font-semibold text-cream transition-colors hover:bg-rose hover:border-rose"
           >
+            <PhoneIcon className="h-4 w-4 text-rose transition-colors group-hover:text-cream" />
             {siteConfig.phone}
           </a>
           <div className="mt-6 flex items-center gap-4">

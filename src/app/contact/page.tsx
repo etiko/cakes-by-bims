@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { ContactForm } from "@/components/ContactForm";
 import { siteConfig } from "@/lib/site-config";
-import { FacebookIcon, InstagramIcon } from "@/components/icons";
+import { FacebookIcon, InstagramIcon, PhoneIcon } from "@/components/icons";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/Reveal";
 
 export const metadata: Metadata = {
@@ -31,16 +31,26 @@ export default function ContactPage() {
         <StaggerGroup className="flex flex-col gap-8">
           <StaggerItem className="rounded-3xl bg-blush/40 p-8">
             <h3 className="font-serif-display text-xl font-semibold text-cocoa">Contact details</h3>
+            <a
+              href={`tel:${siteConfig.phoneHref}`}
+              className="group mt-4 flex items-center gap-3 rounded-2xl bg-white/70 p-4 ring-1 ring-cocoa/5 transition-colors hover:bg-rose"
+            >
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-rose text-cream transition-colors group-hover:bg-white group-hover:text-rose">
+                <PhoneIcon className="h-5 w-5" />
+              </span>
+              <span>
+                <span className="block text-xs uppercase tracking-wide text-cocoa-light group-hover:text-cream/80">
+                  Call or text
+                </span>
+                <span className="block text-lg font-semibold text-cocoa group-hover:text-cream">
+                  {siteConfig.phone}
+                </span>
+              </span>
+            </a>
             <ul className="mt-4 space-y-3 text-base text-cocoa-light">
               <li>
                 <span className="block font-semibold text-cocoa">Serving</span>
                 {siteConfig.serviceArea}
-              </li>
-              <li>
-                <span className="block font-semibold text-cocoa">Phone</span>
-                <a href={`tel:${siteConfig.phoneHref}`} className="hover:text-rose-dark">
-                  {siteConfig.phone}
-                </a>
               </li>
               <li>
                 <span className="block font-semibold text-cocoa">Email</span>
