@@ -83,3 +83,15 @@ body {
   background-position: top center;
 }
 
+/* Hides the scrollbar on horizontally-scrollable strips (e.g. the gallery
+   category filter) while keeping the element natively scrollable via touch,
+   trackpad, and mouse-wheel-shift. */
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+

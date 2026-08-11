@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { Hero } from "@/components/Hero";
 import { SectionHeading } from "@/components/SectionHeading";
 import { GalleryCategoryGrid } from "@/components/GalleryCategoryGrid";
+import { GalleryCategoryFilter } from "@/components/GalleryCategoryFilter";
 import { CTASection } from "@/components/CTASection";
 import { Reveal } from "@/components/motion/Reveal";
 import { galleryCategories, getGalleryCategory, getGalleryItems } from "@/lib/gallery-data";
@@ -63,20 +64,8 @@ export default async function GalleryCategoryPage({ params }: CategoryPageProps)
           </div>
         </Reveal>
 
-        <div className="mt-8 flex flex-wrap justify-center gap-3">
-          {galleryCategories.map((cat) => (
-            <Link
-              key={cat.slug}
-              href={`/gallery/${cat.slug}`}
-              className={`rounded-full px-4 py-2 text-xs font-semibold uppercase tracking-wide transition-colors ${
-                cat.slug === category.slug
-                  ? "bg-rose text-cream"
-                  : "bg-white text-cocoa ring-1 ring-cocoa/10 hover:bg-blush"
-              }`}
-            >
-              {cat.label}
-            </Link>
-          ))}
+        <div className="mt-8">
+          <GalleryCategoryFilter categories={galleryCategories} activeSlug={category.slug} />
         </div>
 
         <div className="mt-12">
