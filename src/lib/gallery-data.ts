@@ -1,9 +1,23 @@
 // Cake categories mirroring the real CakesbyBIMS product categories, each with its own
 // gallery page at /gallery/[category]. Photography sourced from the live site's media library.
+/** A small, fixed set of top-level themes categories are grouped under.
+ *  New categories should slot into one of these rather than adding a new
+ *  group, so the group-tab bar itself stays a bounded, stable control no
+ *  matter how many categories exist beneath it. */
+export type GalleryGroup = "weddings-engagements" | "celebrations" | "kids-characters" | "cupcakes-favours";
+
+export const galleryGroups: { slug: GalleryGroup; label: string }[] = [
+  { slug: "weddings-engagements", label: "Weddings & Engagements" },
+  { slug: "celebrations", label: "Celebrations" },
+  { slug: "kids-characters", label: "Kids & Characters" },
+  { slug: "cupcakes-favours", label: "Cupcakes & Favours" },
+];
+
 export interface GalleryCategory {
   slug: string;
   label: string;
   description: string;
+  group: GalleryGroup;
 }
 
 export const galleryCategories: GalleryCategory[] = [
@@ -11,46 +25,55 @@ export const galleryCategories: GalleryCategory[] = [
     slug: "wedding-cakes",
     label: "Wedding Cakes",
     description: "Bespoke tiered wedding cakes designed around your colour palette, venue and flowers.",
-  },
-  {
-    slug: "childrens-cake",
-    label: "Children's Cakes",
-    description: "Fun, colourful cakes for birthdays and children's celebrations.",
-  },
-  {
-    slug: "baby-shower-cakes",
-    label: "Baby Shower Cakes",
-    description: "Soft palettes and delicate detailing to celebrate a new arrival.",
+    group: "weddings-engagements",
   },
   {
     slug: "engagement-traditional-cakes",
     label: "Engagement & Traditional Cakes",
     description: "Cakes for engagements, traditional ceremonies and cultural celebrations.",
-  },
-  {
-    slug: "celebration-cakes-men",
-    label: "Celebration Cakes (Men)",
-    description: "Birthday and milestone cakes designed for the men in your life.",
+    group: "weddings-engagements",
   },
   {
     slug: "celebration-cakes-women",
     label: "Celebration Cakes (Women)",
     description: "Elegant birthday and milestone cakes for her special day.",
+    group: "celebrations",
   },
   {
-    slug: "character-themed-cakes",
-    label: "Character & Themed Cakes",
-    description: "Custom character and themed cakes for any celebration.",
+    slug: "celebration-cakes-men",
+    label: "Celebration Cakes (Men)",
+    description: "Birthday and milestone cakes designed for the men in your life.",
+    group: "celebrations",
   },
   {
     slug: "graduation-cake",
     label: "Graduation Cakes",
     description: "Celebrate the achievement with a custom graduation cake.",
+    group: "celebrations",
+  },
+  {
+    slug: "childrens-cake",
+    label: "Children's Cakes",
+    description: "Fun, colourful cakes for birthdays and children's celebrations.",
+    group: "kids-characters",
+  },
+  {
+    slug: "character-themed-cakes",
+    label: "Character & Themed Cakes",
+    description: "Custom character and themed cakes for any celebration.",
+    group: "kids-characters",
+  },
+  {
+    slug: "baby-shower-cakes",
+    label: "Baby Shower Cakes",
+    description: "Soft palettes and delicate detailing to celebrate a new arrival.",
+    group: "kids-characters",
   },
   {
     slug: "cupcakes-favours",
     label: "Cupcakes & Favours",
     description: "Individually finished cupcakes and dessert favours.",
+    group: "cupcakes-favours",
   },
 ];
 
