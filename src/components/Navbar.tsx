@@ -8,6 +8,14 @@ import { AnimatePresence, motion } from "motion/react";
 import { navLinks, siteConfig } from "@/lib/site-config";
 import { MenuIcon, CloseIcon, FacebookIcon, InstagramIcon } from "./icons";
 
+// A link is "active" if the current path is that link exactly, or a subpath
+// of it (e.g. /gallery/wedding-cakes should highlight the "Gallery" link).
+// The home link ("/") is only ever active on an exact match.
+function isNavLinkActive(pathname: string, href: string) {
+  if (href === "/") return pathname === "/";
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 const overlayVariants = {
   hidden: { opacity: 0 },
   show: { opacity: 1, transition: { duration: 0.3, ease: "easeOut" as const } },
@@ -114,7 +122,7 @@ export function Navbar() {
 
         <nav className="hidden items-center gap-10 lg:flex">
           {navLinks.map((link) => {
-            const active = pathname === link.href;
+            const active = isNavLinkActive(pathname, link.href);
             return (
               <Link
                 key={link.href}
@@ -186,7 +194,7 @@ export function Navbar() {
                 className="flex flex-1 flex-col items-start justify-center gap-1 px-8"
               >
                 {navLinks.map((link) => {
-                  const active = pathname === link.href;
+                  const active = isNavLinkActive(pathname, link.href);
                   return (
                     <motion.li key={link.href} variants={linkItemVariants} className="w-full">
                       <Link
