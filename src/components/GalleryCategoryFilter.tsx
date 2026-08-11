@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { GalleryCategory } from "@/lib/gallery-data";
 import { galleryGroups } from "@/lib/gallery-data";
@@ -21,6 +21,21 @@ export function GalleryCategoryFilter({
   const [activeGroup, setActiveGroup] = useState(activeCategory?.group ?? galleryGroups[0].slug);
 
   const visibleCategories = categories.filter((cat) => cat.group === activeGroup);
+
+  const stripRef = useRef<HTMLDivElement>(null);
+  const [canScrollLeft, setCanScrollLeft] = useState(false);
+  const [canScrollRight, setCanScrollRight] = useState(false);
+
+  const updateScrollFades = () => {
+    const el = stripRef.current;
+    if (!el) return;
+    setCanScrollLeft(el.scrollLeft > 4);
+    setCanScrollRight(el.scrollLeft + el.clientWidth < el.scrollWidth - 4);
+  };
+
+  useEffect(() => {
+    updateScrollFades();
+  }, [activeGroup]);
 
   return (
     <div className="mt-8">
@@ -46,12 +61,22 @@ export function GalleryCategoryFilter({
       </div>
 
       {/* Category pills within the active theme — horizontally scrollable so
-          a theme can hold any number of categories without growing taller. */}
+          a theme can hold any number of categories without growing taller.
+          The edge fades only appear once there's actually more to scroll to
+          in that direction, so the first/last pill is never obscured. */}
       <div className="relative mt-5">
-        <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-cream to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-cream to-transparent" />
+        {canScrollLeft && (
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-10 bg-gradient-to-r from-cream to-transparent" />
+        )}
+        {canScrollRight && (
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-10 bg-gradient-to-l from-cream to-transparent" />
+        )}
 
-        <div className="no-scrollbar flex gap-3 overflow-x-auto scroll-smooth px-1 py-1">
+        <div
+          ref={stripRef}
+          onScroll={updateScrollFades}
+          className="no-scrollbar flex gap-3 overflow-x-auto scroll-smooth px-1 py-1"
+        >
           {visibleCategories.map((cat) => (
             <Link
               key={cat.slug}
@@ -70,4 +95,5 @@ export function GalleryCategoryFilter({
     </div>
   );
 }
+
 
