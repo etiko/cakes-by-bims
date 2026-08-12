@@ -55,6 +55,16 @@ redesign ships a curated subset (~99 photos, capped at ~12 per category) sourced
 site's media library to balance "lots of pictures per category" against repo size — add more
 files to the matching folder and an entry to `gallery-data.ts` to expand any category further.
 
+## Deploying
+
+`npm run build` runs `next build` (static export to `out/`) followed by a `postbuild` step
+(`scripts/mirror-index-html.mjs`) that copies each route's `<route>.html` into
+`<route>/index.html`. This is required because the production host's edge/CDN layer forces a
+trailing slash on clean URLs (`/contact` → `/contact/`), and `.htaccess` resolves `/contact/` to
+`/contact/index.html` if it exists — otherwise it 403s, even though `/contact.html` is present and
+correct. Always deploy the full contents of `out/` (both the flat `.html` files and the mirrored
+`index.html` files) to the host's web root.
+
 ## Contact form
 
 The enquiry form on `/contact` submits to `public/contact.php`, a plain PHP script deployed
