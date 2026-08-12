@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { ContactForm } from "@/components/ContactForm";
 import { siteConfig } from "@/lib/site-config";
-import { FacebookIcon, InstagramIcon, PhoneIcon } from "@/components/icons";
+import { FacebookIcon, InstagramIcon, MailIcon, PhoneIcon } from "@/components/icons";
 import { Reveal, StaggerGroup, StaggerItem } from "@/components/motion/Reveal";
 
 export const metadata: Metadata = {
@@ -47,16 +47,26 @@ export default function ContactPage() {
                 </span>
               </span>
             </a>
+            <a
+              href={`mailto:${siteConfig.email}`}
+              className="group mt-3 flex items-center gap-3 rounded-2xl bg-white/70 p-4 ring-1 ring-cocoa/5 transition-colors hover:bg-rose"
+            >
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-rose text-cream transition-colors group-hover:bg-white group-hover:text-rose">
+                <MailIcon className="h-5 w-5" />
+              </span>
+              <span>
+                <span className="block text-xs uppercase tracking-wide text-cocoa-light group-hover:text-cream/80">
+                  Email us
+                </span>
+                <span className="block text-lg font-semibold text-cocoa group-hover:text-cream">
+                  {siteConfig.email}
+                </span>
+              </span>
+            </a>
             <ul className="mt-4 space-y-3 text-base text-cocoa-light">
               <li>
                 <span className="block font-semibold text-cocoa">Serving</span>
                 {siteConfig.serviceArea}
-              </li>
-              <li>
-                <span className="block font-semibold text-cocoa">Email</span>
-                <a href={`mailto:${siteConfig.email}`} className="hover:text-rose-dark">
-                  {siteConfig.email}
-                </a>
               </li>
             </ul>
           </StaggerItem>

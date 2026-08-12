@@ -28,7 +28,7 @@ npm run lint     # eslint
 
 This redesign keeps the one piece of copy that was genuine on the old WordPress site (the "Baked
 with Love" description), the real Facebook/Instagram links and the real enquiry inbox
-(`cakesbybims@gmail.com`). Everything else that the old site only had as WordPress theme
+(`info@cakesbybims.co.uk`). Everything else that the old site only had as WordPress theme
 placeholder (Lorem Ipsum About/Contact pages) has been rewritten with realistic copy, but the
 following should be swapped for the real details before launch:
 
@@ -59,7 +59,7 @@ files to the matching folder and an entry to `gallery-data.ts` to expand any cat
 
 The enquiry form on `/contact` submits to `public/contact.php`, a plain PHP script deployed
 alongside the built site on the shared/cPanel host. It validates the payload, checks a honeypot
-field, and emails the enquiry to `cakesbybims@gmail.com` (see `RECIPIENT_EMAIL` in
+field, and emails the enquiry to `info@cakesbybims.co.uk` (see `RECIPIENT_EMAIL` in
 `contact.php`, which should stay in sync with `email` in `src/lib/site-config.ts`) using PHP's
 built-in `mail()` function — no Node backend, SMTP credentials, or third-party form service
 required. Since the form is the primary contact channel, the site intentionally does not display

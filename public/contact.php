@@ -11,7 +11,7 @@
 
 declare(strict_types=1);
 
-const RECIPIENT_EMAIL = 'cakesbybims@gmail.com';
+const RECIPIENT_EMAIL = 'info@cakesbybims.co.uk';
 
 header('Content-Type: application/json; charset=utf-8');
 

@@ -5,7 +5,7 @@ export const siteConfig = {
   description:
     "At CakesbyBIMS, attention to detail is our watch word. We do not just bake for the occasion — we engage our clients from enquiry stage through to planning and decorating, ensuring the cakes, flowers and venue decoration blend perfectly for your day.",
   url: "https://cakesbybims.co.uk",
-  email: "cakesbybims@gmail.com",
+  email: "info@cakesbybims.co.uk",
   phone: "+44 7515 971282",
   phoneHref: "+447515971282",
   serviceArea: "Manchester & Greater Manchester, with nationwide delivery available",
