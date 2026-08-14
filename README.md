@@ -65,6 +65,32 @@ trailing slash on clean URLs (`/contact` → `/contact/`), and `.htaccess` resol
 correct. Always deploy the full contents of `out/` (both the flat `.html` files and the mirrored
 `index.html` files) to the host's web root.
 
+### Legacy WordPress URL redirects
+
+The host's `.htaccess` (not tracked in this repo — it lives directly on the server alongside the
+platform-managed `GD-SSL`/`WordPress` blocks, which get rewritten by GoDaddy/WP outside of any
+deploy from this repo) also carries 301 redirects from old WordPress permalinks that still get
+backlinks/bookmarks to their equivalent page on the new static site:
+
+| Old URL | New URL |
+| --- | --- |
+| `/about-us/` | `/about` |
+| `/contact-us/` | `/contact` |
+| `/our-products/` | `/services` |
+| `/our-products/wedding-cakes/` | `/gallery/wedding-cakes` |
+| `/our-products/baby-shower-cakes/` | `/gallery/baby-shower-cakes` |
+| `/our-products/celebration-cakes-men/` | `/gallery/celebration-cakes-men` |
+| `/our-products/celebration-cakes-women/` | `/gallery/celebration-cakes-women` |
+| `/our-products/graduation-cake/` | `/gallery/graduation-cake` |
+| `/our-products/childrens-cake/` | `/gallery/childrens-cake` |
+| `/our-products/engagement-traditional-cakes/` | `/gallery/engagement-traditional-cakes` |
+| `/our-products/character-themed-cakes/` | `/gallery/character-themed-cakes` |
+
+The rules live in the `RewriteEngine` block inside the `# BEGIN Next.js static export` section, so
+they take priority over both the clean-URL rewrite rules below them and the WordPress fallback.
+If a new gallery category or renamed page needs a legacy redirect, add another
+`RewriteRule ^old-path/?$ /new-path [R=301,L]` line there directly on the server.
+
 ## Contact form
 
 The enquiry form on `/contact` submits to `public/contact.php`, a plain PHP script deployed
