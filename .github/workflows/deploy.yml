@@ -76,7 +76,12 @@ jobs:
           # repo doesn't manage (wp-*, xmlrpc.php, .htaccess, robots.txt, etc.).
           # Exclude them so --delete only prunes stale files that this repo's
           # own build previously produced.
-          rsync -avz --delete \
+          # --omit-dir-times/--no-perms/--no-owner/--no-group: the html/ web
+          # root itself is owned by root (a platform-managed mount point), so
+          # rsync can't update its mtime/perms/ownership; skipping those
+          # attributes for directories avoids that harmless-but-fatal error
+          # (file contents still transfer and overwrite correctly).
+          rsync -avz --delete --omit-dir-times --no-perms --no-owner --no-group \
             --exclude=".*" \
             --exclude="wp-*" \
             --exclude="xmlrpc.php" \
