@@ -65,6 +65,22 @@ trailing slash on clean URLs (`/contact` → `/contact/`), and `.htaccess` resol
 correct. Always deploy the full contents of `out/` (both the flat `.html` files and the mirrored
 `index.html` files) to the host's web root.
 
+### CI/CD
+
+`.github/workflows/deploy.yml` automates this:
+
+- **Every push/PR** to `main` runs `npm run lint` and `npm run build` (build failures block merge).
+- **Pushes to `main`** additionally deploy: the built `out/` is `rsync`'d over SSH into the host's
+  `html/` web root, deleting files this repo previously deployed that no longer exist in the new
+  build (e.g. stale `_next/<old-build-id>/` chunks) while leaving the host's own WordPress/GoDaddy
+  platform files (`.htaccess`, `wp-*`, `xmlrpc.php`, `robots.txt`, etc. — see the exclude list in
+  the workflow) untouched.
+- Deployment needs three repo secrets (Settings → Secrets and variables → Actions):
+  `DEPLOY_HOST`, `DEPLOY_USERNAME`, `DEPLOY_PASSWORD` (this host only supports password SSH auth,
+  no public-key auth). `.github/deploy/known_hosts` pins the host's SSH key so the workflow doesn't
+  need to disable host-key checking.
+- Trigger a deploy manually from the Actions tab (`workflow_dispatch`) if needed without a new push.
+
 ### Legacy WordPress URL redirects
 
 The host's `.htaccess` (not tracked in this repo — it lives directly on the server alongside the
